@@ -1,0 +1,9 @@
+{
+  "name": "personal-finance-tracker",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {}
+}
