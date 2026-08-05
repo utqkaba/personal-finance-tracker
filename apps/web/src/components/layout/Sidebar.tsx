@@ -26,9 +26,11 @@ const navigationItems = [
 
 function Sidebar() {
   return (
-    <aside className="flex w-64 flex-col border-r border-stone-200 bg-stone-100 shadow-sm">
-      <div className="border-b border-stone-200 px-6 py-6">
-        <h1 className="text-xl text-center text-stone-900">Finance Tracker</h1>
+    <aside className="flex w-64 flex-col border-none bg-stone-100">
+      <div className="flex h-18 justify-center items-center px-6 py-6">
+        <h1 className="italic text-xl text-stone-900 text-shadow-stone-300 text-shadow-lg">
+          Finance Tracker
+        </h1>
       </div>
 
       <nav className="flex flex-1 flex-col gap-3 p-4">
