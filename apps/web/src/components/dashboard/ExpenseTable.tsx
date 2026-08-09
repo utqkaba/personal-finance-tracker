@@ -1,35 +1,8 @@
-const expenses = [
-  {
-    id: 1,
-    date: "07 Aug 2026",
-    description: "Market Shopping",
-    category: "Food",
-    amount: 850,
-  },
-  {
-    id: 2,
-    date: "06 Aug 2026",
-    description: "Spotify Premium",
-    category: "Subscription",
-    amount: 80,
-  },
-  {
-    id: 3,
-    date: "05 Aug 2026",
-    description: "Gas Station",
-    category: "Transport",
-    amount: 1250,
-  },
-  {
-    id: 4,
-    date: "04 Aug 2026",
-    description: "Electricity Bill",
-    category: "Bills",
-    amount: 940,
-  },
-];
+import { useExpenseStore } from "../../stores/expenseStore";
 
 function ExpenseTable() {
+  const expenses = useExpenseStore((state) => state.expenses);
+
   return (
     <section className="rounded-xl shadow-lg p-6 bg-stone-100">
       <div className="mb-10 flex items-center justify-between">
@@ -68,7 +41,7 @@ function ExpenseTable() {
                 key={expense.id}
                 className="border-b border-stone-200 transition-colors hover:bg-stone-100"
               >
-                <td className="py-4 text-sm text-stone-600 pl-1">
+                <td className="py-4 pl-1 text-sm text-stone-600">
                   {expense.date}
                 </td>
 
@@ -82,7 +55,7 @@ function ExpenseTable() {
                   </span>
                 </td>
 
-                <td className="py-4 text-right font-mono text-stone-900 pr-2">
+                <td className="py-4 pr-2 text-right font-mono text-stone-900">
                   ₺{expense.amount.toLocaleString("tr-TR")}
                 </td>
               </tr>
