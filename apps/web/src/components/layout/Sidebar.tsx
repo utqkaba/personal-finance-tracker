@@ -26,7 +26,7 @@ const navigationItems = [
 
 function Sidebar() {
   return (
-    <aside className="flex w-64 flex-col border-none bg-stone-100">
+    <aside className="flex h-full shrink-0 w-64 flex-col border-none bg-stone-100">
       <div className="flex h-18 justify-center items-center px-6 py-6">
         <h1 className="italic text-xl text-stone-900 text-shadow-stone-300 text-shadow-lg">
           Finance Tracker
