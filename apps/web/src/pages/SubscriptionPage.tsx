@@ -1,6 +1,11 @@
+import { useState } from "react";
+
+import AddSubscriptionModal from "../components/subscriptions/AddSubscriptionModal";
 import { useSubscriptionStore } from "../stores/subscriptionStore";
 
 function SubscriptionPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const subscriptions = useSubscriptionStore((state) => state.subscriptions);
 
   return (
@@ -16,6 +21,7 @@ function SubscriptionPage() {
 
         <button
           type="button"
+          onClick={() => setIsModalOpen(true)}
           className="cursor-pointer rounded-lg bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2 font-extralight text-white transition-transform duration-500 hover:scale-105"
         >
           + Add Subscription
@@ -90,6 +96,11 @@ function SubscriptionPage() {
           </div>
         )}
       </section>
+
+      <AddSubscriptionModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
