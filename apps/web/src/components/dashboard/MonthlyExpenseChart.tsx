@@ -1,3 +1,13 @@
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+
 import { useExpenseStore } from "../../stores/expenseStore";
 import { getMonthlyExpenses } from "../../utils/expenseUtils";
 
@@ -12,8 +22,31 @@ function MonthlyExpenseChart() {
         Monthly Expenses
       </h2>
 
-      <div className="h-80 rounded-xl border border-dashed border-stone-300">
-        {/* Bar chart */}
+      <div className="h-80">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={monthlyExpenses}>
+            <CartesianGrid strokeDasharray="3 3" />
+
+            <XAxis dataKey="month" />
+
+            <YAxis />
+
+            <Tooltip
+              cursor={false}
+              formatter={(value) =>
+                `${Number(value).toLocaleString("tr-TR")} ₺`
+              }
+            />
+
+            <Bar
+              dataKey="total"
+              fill="#F6E5CB"
+              barSize={24}
+              radius={[5, 5, 0, 0]}
+              activeBar={{ fill: "#C4B7A2" }}
+            />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </section>
   );
