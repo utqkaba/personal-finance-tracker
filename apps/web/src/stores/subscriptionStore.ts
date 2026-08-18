@@ -6,6 +6,7 @@ import type { Subscription } from "../types/subscription";
 interface SubscriptionStore {
   subscriptions: Subscription[];
   addSubscription: (subscription: Subscription) => void;
+  updateSubscription: (updatedSubscription: Subscription) => void;
   removeSubscription: (id: string) => void;
 }
 
@@ -25,7 +26,17 @@ export const useSubscriptionStore = create<SubscriptionStore>()(
             (subscription) => subscription.id !== id,
           ),
         })),
+
+      updateSubscription: (updatedSubscription) =>
+        set((state) => ({
+          subscriptions: state.subscriptions.map((subscription) =>
+            subscription.id === updatedSubscription.id
+              ? updatedSubscription
+              : subscription,
+          ),
+        })),
     }),
+
     {
       name: "subscription-storage",
     },

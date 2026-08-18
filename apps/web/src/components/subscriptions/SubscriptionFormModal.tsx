@@ -2,22 +2,29 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 import { useSubscriptionStore } from "../../stores/subscriptionStore";
+import type { Subscription } from "../../types/subscription";
 
-interface AddSubscriptionModalProps {
+interface SubscriptionFormModalProps {
   isOpen: boolean;
   onClose: () => void;
+  subscription?: Subscription;
 }
 
 const getInitialDate = () => new Date().toISOString().split("T")[0];
 
-function AddSubscriptionModal({ isOpen, onClose }: AddSubscriptionModalProps) {
-  const [name, setName] = useState("");
-  const [amount, setAmount] = useState("");
+function SubscriptionFormModal({
+  isOpen,
+  onClose,
+  subscription,
+}: SubscriptionFormModalProps) {
+  const [name, setName] = useState(subscription?.name ?? "");
+  const [amount, setAmount] = useState(subscription?.amount.toString() ?? "");
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
-    "monthly",
+    subscription?.billingCycle ?? "monthly",
   );
-  const [nextBillingDate, setNextBillingDate] = useState(getInitialDate());
-
+  const [nextBillingDate, setNextBillingDate] = useState(
+    subscription?.nextBillingDate ?? getInitialDate(),
+  );
   const [errors, setErrors] = useState({
     name: "",
     amount: "",
@@ -28,6 +35,12 @@ function AddSubscriptionModal({ isOpen, onClose }: AddSubscriptionModalProps) {
   const addSubscription = useSubscriptionStore(
     (state) => state.addSubscription,
   );
+
+  const updateSubscription = useSubscriptionStore(
+    (state) => state.updateSubscription,
+  );
+
+  const isEditMode = Boolean(subscription);
 
   if (!isOpen) {
     return null;
@@ -86,13 +99,19 @@ function AddSubscriptionModal({ isOpen, onClose }: AddSubscriptionModalProps) {
       return;
     }
 
-    addSubscription({
-      id: crypto.randomUUID(),
+    const subscriptionData = {
+      id: subscription?.id ?? crypto.randomUUID(),
       name: name.trim(),
       amount: Number(amount),
       billingCycle,
       nextBillingDate,
-    });
+    };
+
+    if (subscription) {
+      updateSubscription(subscriptionData);
+    } else {
+      addSubscription(subscriptionData);
+    }
 
     handleClose();
   };
@@ -103,11 +122,13 @@ function AddSubscriptionModal({ isOpen, onClose }: AddSubscriptionModalProps) {
         <div className="mb-6 flex items-start justify-between">
           <div>
             <h2 className="text-xl text-shadow-stone-300 text-shadow-lg text-stone-900">
-              Add Subscription
+              {isEditMode ? "Edit Subscription" : "Add Subscription"}
             </h2>
 
             <p className="mt-1 text-sm font-extralight italic text-stone-500">
-              Add a new recurring expense.
+              {isEditMode
+                ? "Update your subscription details."
+                : "Add a new recurring expense."}
             </p>
           </div>
 
@@ -239,7 +260,7 @@ function AddSubscriptionModal({ isOpen, onClose }: AddSubscriptionModalProps) {
               type="submit"
               className="cursor-pointer rounded-xl bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2.5 text-sm font-extralight text-white transition-transform duration-500 hover:scale-105"
             >
-              Add Subscription
+              {isEditMode ? "Save Changes" : "Add Subscription"}
             </button>
           </div>
         </form>
@@ -248,4 +269,4 @@ function AddSubscriptionModal({ isOpen, onClose }: AddSubscriptionModalProps) {
   );
 }
 
-export default AddSubscriptionModal;
+export default SubscriptionFormModal;

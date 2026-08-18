@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import AddSubscriptionModal from "../components/subscriptions/AddSubscriptionModal";
+import AddSubscriptionModal from "../components/subscriptions/SubscriptionFormModal";
 import { useSubscriptionStore } from "../stores/subscriptionStore";
 import SubscriptionList from "../components/subscriptions/SubscriptionList";
 import { getMonthlySubscriptionCost } from "../utils/subscriptionUtils";
