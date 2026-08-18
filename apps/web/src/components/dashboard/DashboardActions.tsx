@@ -3,32 +3,43 @@ import { useState } from "react";
 import AddExpenseModal from "../expense/AddExpenseModal";
 
 import { useExpenseStore } from "../../stores/expenseStore";
+import { useSubscriptionStore } from "../../stores/subscriptionStore";
+
 import {
   getCurrentMonthExpenses,
   getExpensesWithoutSubscriptions,
   getTotalExpenses,
 } from "../../utils/expenseUtils";
+import { getMonthlySubscriptionCost } from "../../utils/subscriptionUtils";
 
 function DashboardActions() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const expenses = useExpenseStore((state) => state.expenses);
+  const subscriptions = useSubscriptionStore((state) => state.subscriptions);
 
   const currentMonthExpenses = getCurrentMonthExpenses(expenses);
+
   const totalExpenses = getTotalExpenses(currentMonthExpenses);
+
+  const monthlySubscriptionCost = getMonthlySubscriptionCost(subscriptions);
+
+  const totalThisMonth = totalExpenses + monthlySubscriptionCost;
+
   const expensesWithoutSubscriptions =
     getExpensesWithoutSubscriptions(currentMonthExpenses);
+
   const totalWithoutSubscriptions = getTotalExpenses(
     expensesWithoutSubscriptions,
   );
 
   return (
     <>
-      <section className="flex items-center justify-between rounded-xl shadow-lg p-6 bg-stone-100">
+      <section className="flex items-center justify-between rounded-xl bg-stone-100 p-6 shadow-lg">
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="cursor-pointer rounded-2xl px-7 py-2 font-extralight text-white bg-linear-to-r from-blue-100 to-blue-700 hover:scale-105 transition-transform duration-500"
+          className="cursor-pointer rounded-2xl bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2 font-extralight text-white transition-transform duration-500 hover:scale-105"
         >
           + Add Expense
         </button>
@@ -37,7 +48,7 @@ function DashboardActions() {
           <div>
             <p className="text-sm text-stone-500">This Month</p>
             <p className="text-xl font-mono text-stone-900">
-              {totalExpenses.toLocaleString("tr-TR")}₺
+              {totalThisMonth.toLocaleString("tr-TR")}₺
             </p>
           </div>
 
