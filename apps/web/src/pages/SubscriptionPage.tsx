@@ -2,27 +2,40 @@ import { useState } from "react";
 
 import AddSubscriptionModal from "../components/subscriptions/AddSubscriptionModal";
 import { useSubscriptionStore } from "../stores/subscriptionStore";
+import SubscriptionList from "../components/subscriptions/SubscriptionList";
+import { getMonthlySubscriptionCost } from "../utils/subscriptionUtils";
 
 function SubscriptionPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const subscriptions = useSubscriptionStore((state) => state.subscriptions);
+  const monthlyCost = getMonthlySubscriptionCost(subscriptions);
 
   return (
     <div className="flex min-h-screen min-w-0 flex-col gap-6">
       <section className="flex items-center justify-between rounded-xl bg-stone-100 p-6 shadow-lg">
-        <div>
+        {/* <div>
           <h1 className="text-xl font-medium text-stone-900">Subscriptions</h1>
 
           <p className="mt-1 text-sm font-extralight text-stone-500">
             Manage your recurring expenses.
+          </p>
+        </div> */}
+
+        <div className="text-center">
+          <p className="text-sm text-stone-500">
+            Estimated Monthly Subscription Cost
+          </p>
+
+          <p className="mt-1 text-xl font-mono text-stone-900">
+            ₺{monthlyCost.toLocaleString("tr-TR")}
           </p>
         </div>
 
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="cursor-pointer rounded-lg bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2 font-extralight text-white transition-transform duration-500 hover:scale-105"
+          className="cursor-pointer rounded-2xl bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2 font-extralight text-white transition-transform duration-500 hover:scale-105"
         >
           + Add Subscription
         </button>
@@ -46,54 +59,7 @@ function SubscriptionPage() {
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto px-3">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b border-stone-900 text-left">
-                  <th className="pb-3 text-xs font-medium uppercase tracking-wider text-stone-500">
-                    Name
-                  </th>
-
-                  <th className="pb-3 text-xs font-medium uppercase tracking-wider text-stone-500">
-                    Amount
-                  </th>
-
-                  <th className="pb-3 text-xs font-medium uppercase tracking-wider text-stone-500">
-                    Billing Cycle
-                  </th>
-
-                  <th className="pb-3 text-right text-xs font-medium uppercase tracking-wider text-stone-500">
-                    Next Billing
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {subscriptions.map((subscription) => (
-                  <tr
-                    key={subscription.id}
-                    className="border-b border-stone-200 transition-colors hover:bg-stone-100"
-                  >
-                    <td className="py-4 text-sm text-stone-900">
-                      {subscription.name}
-                    </td>
-
-                    <td className="py-4 font-mono text-sm text-stone-900">
-                      ₺{subscription.amount}
-                    </td>
-
-                    <td className="py-4 text-sm capitalize text-stone-600">
-                      {subscription.billingCycle}
-                    </td>
-
-                    <td className="py-4 text-right text-sm text-stone-600">
-                      {subscription.nextBillingDate}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <SubscriptionList subscriptions={subscriptions} />
         )}
       </section>
 

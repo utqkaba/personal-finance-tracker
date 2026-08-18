@@ -28,7 +28,7 @@ function DashboardActions() {
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="cursor-pointer rounded-lg px-7 py-2 font-extralight text-white bg-linear-to-r from-blue-100 to-blue-700 hover:scale-105 transition-transform duration-500"
+          className="cursor-pointer rounded-2xl px-7 py-2 font-extralight text-white bg-linear-to-r from-blue-100 to-blue-700 hover:scale-105 transition-transform duration-500"
         >
           + Add Expense
         </button>
