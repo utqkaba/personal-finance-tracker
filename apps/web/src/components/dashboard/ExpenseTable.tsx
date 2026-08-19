@@ -1,5 +1,19 @@
 import { useExpenseStore } from "../../stores/expenseStore";
 
+function formatDateWithDay(dateString: string): string {
+  const date = new Date(dateString);
+
+  const formattedDate = date.toLocaleDateString("tr-TR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+
+  const dayName = date.toLocaleDateString("tr-TR", { weekday: "long" });
+
+  return `${formattedDate} - ${dayName}`;
+}
+
 function ExpenseTable() {
   const expenses = useExpenseStore((state) => state.expenses);
 
@@ -41,21 +55,21 @@ function ExpenseTable() {
                 key={expense.id}
                 className="border-b border-stone-200 transition-colors hover:bg-stone-100"
               >
-                <td className="py-4 pl-1 text-sm text-stone-600">
-                  {expense.date}
+                <td className="py-2 pl-1 text-sm text-stone-600">
+                  {formatDateWithDay(expense.date)}
                 </td>
 
-                <td className="py-4 text-sm text-stone-900">
+                <td className="py-2 text-sm text-stone-900">
                   {expense.description}
                 </td>
 
-                <td className="py-4">
+                <td className="py-2">
                   <span className="rounded-xl bg-stone-200 px-5 py-1 text-xs text-stone-700">
                     {expense.category}
                   </span>
                 </td>
 
-                <td className="py-4 pr-2 text-right font-mono text-stone-900">
+                <td className="py-2 pr-2 text-right font-mono text-stone-900">
                   ₺{expense.amount.toLocaleString("tr-TR")}
                 </td>
               </tr>

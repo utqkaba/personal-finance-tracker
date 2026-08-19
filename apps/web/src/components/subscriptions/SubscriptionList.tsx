@@ -7,7 +7,7 @@ interface SubscriptionListProps {
 
 function SubscriptionList({ subscriptions }: SubscriptionListProps) {
   return (
-    <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-6 gap-x-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
       {subscriptions.map((subscription) => (
         <SubscriptionCard key={subscription.id} subscription={subscription} />
       ))}

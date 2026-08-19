@@ -28,7 +28,7 @@ function SubscriptionCard({ subscription }: SubscriptionCardProps) {
 
   return (
     <>
-      <article className="rounded-xl border border-stone-200 bg-linear-to-br from-stone-100 via-stone-50 to-stone-300 p-5 shadow-md transition-shadow duration-300 hover:shadow-xl">
+      <article className="rounded-xl border border-stone-200 bg-linear-to-br from-stone-100 via-stone-100 to-stone-300 p-5 shadow-md transition-shadow duration-300 hover:shadow-xl">
         <div className="flex items-start justify-between">
           <div>
             <h3 className="text-lg text-stone-900">{name}</h3>

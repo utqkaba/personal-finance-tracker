@@ -23,9 +23,7 @@ function SubscriptionPage() {
         </div> */}
 
         <div className="text-center">
-          <p className="text-sm text-stone-500">
-            Estimated Monthly Subscription Cost
-          </p>
+          <p className="text-sm text-stone-500">Monthly Subscription Cost</p>
 
           <p className="mt-1 text-xl font-mono text-stone-900">
             ₺{monthlyCost.toLocaleString("tr-TR")}
@@ -47,7 +45,7 @@ function SubscriptionPage() {
             Your Subscriptions
           </h2>
 
-          <span className="rounded-xl bg-stone-200 px-5 py-1 text-xs text-stone-600">
+          <span className="italic rounded-xl bg-stone-200 px-5 py-1 text-xs text-stone-600">
             {subscriptions.length} Subscriptions
           </span>
         </div>
