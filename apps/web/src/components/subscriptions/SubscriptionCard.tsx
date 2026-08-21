@@ -38,23 +38,23 @@ function SubscriptionCard({ subscription }: SubscriptionCardProps) {
             </p>
           </div>
 
-          <div className="flex items-center gap-1">
+          <div className="flex items-center">
             <button
               type="button"
               onClick={() => setIsEditModalOpen(true)}
               aria-label={`Edit ${name}`}
-              className="cursor-pointer rounded-full p-2 text-blue-500 transition-transform duration-500 hover:scale-105 hover:bg-stone-200 hover:text-blue-700"
+              className="cursor-pointer rounded-lg p-2 text-stone-400 transition-transform duration-500 hover:scale-105 hover:bg-stone-200 hover:text-blue-600"
             >
-              <Pencil size={16} strokeWidth={1.8} />
+              <Pencil size={14} strokeWidth={1.6} />
             </button>
 
             <button
               type="button"
               onClick={() => setIsDeleteModalOpen(true)}
               aria-label={`Delete ${name}`}
-              className="cursor-pointer rounded-full p-2 text-red-500 transition-transform duration-500 hover:scale-105 hover:bg-stone-200 hover:text-red-700"
+              className="cursor-pointer rounded-lg p-2 text-red-400 transition-transform duration-500 hover:scale-105 hover:bg-stone-200 hover:text-red-600"
             >
-              <Trash2 size={16} strokeWidth={1.8} />
+              <Trash2 size={14} strokeWidth={1.6} />
             </button>
           </div>
         </div>
