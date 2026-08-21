@@ -12,7 +12,7 @@ function SubscriptionPage() {
   const monthlyCost = getMonthlySubscriptionCost(subscriptions);
 
   return (
-    <div className="flex min-h-screen min-w-0 flex-col gap-6">
+    <div className="flex min-h-screen min-w-0 flex-col gap-4">
       <section className="flex items-center justify-between rounded-xl bg-stone-100 p-6 shadow-lg">
         {/* <div>
           <h1 className="text-xl font-medium text-stone-900">Subscriptions</h1>
@@ -21,15 +21,6 @@ function SubscriptionPage() {
             Manage your recurring expenses.
           </p>
         </div> */}
-
-        <div className="text-center">
-          <p className="text-sm text-stone-500">Monthly Subscription Cost</p>
-
-          <p className="mt-1 text-xl font-mono text-stone-900">
-            ₺{monthlyCost.toLocaleString("tr-TR")}
-          </p>
-        </div>
-
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
@@ -37,6 +28,14 @@ function SubscriptionPage() {
         >
           + Add Subscription
         </button>
+
+        <div className="text-center px-5">
+          <p className="text-sm text-stone-500">Monthly Subscription Cost</p>
+
+          <p className="text-xl font-mono text-stone-900">
+            ₺{monthlyCost.toLocaleString("tr-TR")}
+          </p>
+        </div>
       </section>
 
       <section className="rounded-xl bg-stone-100 p-6 shadow-lg">
