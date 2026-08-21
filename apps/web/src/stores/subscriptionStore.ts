@@ -8,6 +8,7 @@ interface SubscriptionStore {
   addSubscription: (subscription: Subscription) => void;
   updateSubscription: (updatedSubscription: Subscription) => void;
   removeSubscription: (id: string) => void;
+  removeAllSubscriptions: (ids: string[]) => void;
 }
 
 export const useSubscriptionStore = create<SubscriptionStore>()(
@@ -24,6 +25,13 @@ export const useSubscriptionStore = create<SubscriptionStore>()(
         set((state) => ({
           subscriptions: state.subscriptions.filter(
             (subscription) => subscription.id !== id,
+          ),
+        })),
+
+      removeAllSubscriptions: (ids) =>
+        set((state) => ({
+          subscriptions: state.subscriptions.filter(
+            (item) => !ids.includes(item.id),
           ),
         })),
 

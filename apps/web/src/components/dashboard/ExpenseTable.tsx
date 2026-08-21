@@ -24,6 +24,7 @@ function formatDateWithDay(dateString: string): string {
 function ExpenseTable() {
   const expenses = useExpenseStore((state) => state.expenses);
   const removeExpense = useExpenseStore((state) => state.removeExpense);
+  const removeAllExpenses = useExpenseStore((state) => state.removeAllExpenses);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingExpense, setEditingExpense] = useState<Expense>();
@@ -42,6 +43,12 @@ function ExpenseTable() {
     removeExpense(id);
   };
 
+  const handleDeleteAll = () => {
+    const expenseIds = expenses.map((expense) => expense.id);
+
+    removeAllExpenses(expenseIds);
+  };
+
   return (
     <>
       <section className="rounded-xl bg-stone-100 p-6 shadow-lg">
@@ -50,16 +57,27 @@ function ExpenseTable() {
             Recent Expenses
           </h2>
 
-          <span className="rounded-xl bg-stone-200 px-5 py-1 text-xs italic text-stone-600">
-            {expenses.length} Expenses
-          </span>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={handleDeleteAll}
+              disabled={expenses.length === 0}
+              className="cursor-pointer rounded-xl bg-linear-to-r from-red-100 to-red-500 px-6 py-1.5 text-xs font-extralight text-white transition-transform duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
+            >
+              Delete All
+            </button>
+
+            <span className="rounded-xl bg-stone-200 px-5 py-1 text-xs italic text-stone-600">
+              {expenses.length} Expenses
+            </span>
+          </div>
         </div>
 
         <div className="overflow-x-auto px-3">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-stone-900 text-left">
-                <th className="pb-3 text-xs font-medium uppercase tracking-wider text-stone-500">
+                <th className="pl-2 pb-3 text-xs font-medium uppercase tracking-wider text-stone-500">
                   Date
                 </th>
 
@@ -75,7 +93,7 @@ function ExpenseTable() {
                   Amount
                 </th>
 
-                <th className="pb-3 pl-4 text-right text-xs font-medium uppercase tracking-wider text-stone-500">
+                <th className="pr-2 pb-3 pl-4 text-right text-xs font-medium uppercase tracking-wider text-stone-500">
                   Actions
                 </th>
               </tr>
@@ -87,7 +105,7 @@ function ExpenseTable() {
                   key={expense.id}
                   className="border-b border-stone-200 transition-colors hover:bg-stone-100"
                 >
-                  <td className="py-2 pl-1 text-sm text-stone-600">
+                  <td className="py-2 pl-2 text-sm text-stone-600">
                     {formatDateWithDay(expense.date)}
                   </td>
 
@@ -105,7 +123,7 @@ function ExpenseTable() {
                     ₺{expense.amount.toLocaleString("tr-TR")}
                   </td>
 
-                  <td className="py-2 pl-4">
+                  <td className="py-2 pl-4 pr-2">
                     <div className="flex justify-end">
                       <button
                         type="button"
