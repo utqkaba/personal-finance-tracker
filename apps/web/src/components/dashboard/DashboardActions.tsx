@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import AddExpenseModal from "../expense/AddExpenseModal";
+import AddExpenseModal from "../expense/ExpenseFormModal";
 
 import { useExpenseStore } from "../../stores/expenseStore";
 import { useSubscriptionStore } from "../../stores/subscriptionStore";
