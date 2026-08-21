@@ -33,7 +33,7 @@ function SubscriptionPage() {
           <p className="text-sm text-stone-500">Monthly Subscription Cost</p>
 
           <p className="text-xl font-mono text-stone-900">
-            ₺{monthlyCost.toLocaleString("tr-TR")}
+            {monthlyCost.toLocaleString("tr-TR")}₺
           </p>
         </div>
       </section>
