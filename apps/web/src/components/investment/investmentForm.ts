@@ -1,16 +1,22 @@
-import {
-  INITIAL_ERRORS,
-  type InvestmentFormErrors,
-} from "./investmentFormConstants";
+export const INITIAL_ERRORS = {
+  name: "",
+  amount: "",
+  purchasePrice: "",
+  purchaseDate: "",
+  interestRate: "",
+  maturityDate: "",
+};
+
+export type InvestmentFormErrors = typeof INITIAL_ERRORS;
 
 interface ValidateParams {
   investmentType: "market" | "term-deposit";
   name: string;
   amount: string;
-  purchaseDate: string;
   purchasePrice: string;
-  interestRate?: string;
-  maturityDate?: string;
+  purchaseDate: string;
+  interestRate: string;
+  maturityDate: string;
 }
 
 export function validateInvestmentForm(
@@ -23,24 +29,22 @@ export function validateInvestmentForm(
   }
 
   if (!params.amount || Number(params.amount) <= 0) {
-    errors.amount = "Amount is required.";
+    errors.amount = "Amount must be greater than 0.";
   }
 
   if (params.investmentType === "market") {
+    if (!params.purchasePrice || Number(params.purchasePrice) <= 0) {
+      errors.purchasePrice = "Purchase price must be greater than 0.";
+    }
     if (!params.purchaseDate) {
       errors.purchaseDate = "Purchase date is required.";
-    }
-
-    if (!params.purchasePrice || Number(params.purchasePrice) <= 0) {
-      errors.purchasePrice = "Purchase price is required.";
     }
   }
 
   if (params.investmentType === "term-deposit") {
     if (!params.interestRate || Number(params.interestRate) <= 0) {
-      errors.interestRate = "Interest rate is required.";
+      errors.interestRate = "Interest rate must be greater than 0.";
     }
-
     if (!params.maturityDate) {
       errors.maturityDate = "Maturity date is required.";
     }

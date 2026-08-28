@@ -1,4 +1,4 @@
-import type { InvestmentFormErrors } from "./investmentFormConstants";
+import type { InvestmentFormErrors } from "./investmentForm";
 
 interface TermDepositFieldsProps {
   interestRate: string;
@@ -20,7 +20,7 @@ function TermDepositFields({
       <div className="flex flex-col gap-2">
         <label
           htmlFor="interest-rate"
-          className="text-sm font-extralight text-stone-700"
+          className="pl-2 text-sm font-extralight text-stone-700"
         >
           Interest Rate
         </label>
@@ -34,7 +34,7 @@ function TermDepositFields({
             value={interestRate}
             onChange={(event) => onInterestRateChange(event.target.value)}
             placeholder="39"
-            className="w-full rounded-xl border border-stone-300 bg-white py-2.5 pl-4 pr-9 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
+            className="w-full rounded-full border border-stone-300 bg-white py-2.5 pl-4 pr-9 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
           />
 
           <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-stone-500">
@@ -50,7 +50,7 @@ function TermDepositFields({
       <div className="flex flex-col gap-2">
         <label
           htmlFor="maturity-date"
-          className="text-sm font-extralight text-stone-700"
+          className="pl-2 text-sm font-extralight text-stone-700"
         >
           Maturity Date
         </label>
@@ -60,7 +60,7 @@ function TermDepositFields({
           type="date"
           value={maturityDate}
           onChange={(event) => onMaturityDateChange(event.target.value)}
-          className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
+          className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
         />
 
         {errors.maturityDate && (

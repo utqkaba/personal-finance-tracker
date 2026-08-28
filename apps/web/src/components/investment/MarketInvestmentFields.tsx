@@ -1,4 +1,4 @@
-import type { InvestmentFormErrors } from "./investmentFormConstants";
+import type { InvestmentFormErrors } from "./investmentForm";
 
 interface MarketInvestmentFieldProps {
   purchasePrice: string;
@@ -20,7 +20,7 @@ function MarketInvestmentFields({
       <div className="flex flex-col gap-2">
         <label
           htmlFor="purchase-price"
-          className="text-sm font-extralight text-stone-700"
+          className="pl-2 text-sm font-extralight text-stone-700"
         >
           Purchase Price
         </label>
@@ -38,7 +38,7 @@ function MarketInvestmentFields({
             value={purchasePrice}
             onChange={(event) => onPurchasePriceChange(event.target.value)}
             placeholder="0.00"
-            className="w-full rounded-xl border border-stone-300 bg-white py-2.5 pl-9 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
+            className="w-full rounded-full border border-stone-300 bg-white py-2.5 pl-9 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
           />
         </div>
 
@@ -50,7 +50,7 @@ function MarketInvestmentFields({
       <div className="flex flex-col gap-2">
         <label
           htmlFor="purchase-date"
-          className="text-sm font-extralight text-stone-700"
+          className="pl-2 text-sm font-extralight text-stone-700"
         >
           Purchase Date
         </label>
@@ -60,7 +60,7 @@ function MarketInvestmentFields({
           type="date"
           value={purchaseDate}
           onChange={(event) => onPurchaseDateChange(event.target.value)}
-          className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
+          className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
         />
 
         {errors.purchaseDate && (

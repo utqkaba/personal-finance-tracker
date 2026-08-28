@@ -18,7 +18,7 @@ function InvestmentTypeSelector({
 }: InvestmentTypeSelectorProps) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm font-extralight text-stone-700">
+      <label className="py-2 text-center text-sm font-extralight text-stone-700">
         Investment Type
       </label>
 
@@ -28,9 +28,9 @@ function InvestmentTypeSelector({
             key={optionValue}
             type="button"
             onClick={() => onChange(optionValue)}
-            className={`flex flex-col items-center gap-2 cursor-pointer rounded-xl border px-4 py-3 transition-all duration-300 ${
+            className={`flex flex-col items-center gap-2 cursor-pointer rounded-full border px-4 py-3 transition-all duration-300 ${
               value === optionValue
-                ? "border-blue-600 bg-linear-to-br from-blue-50 to-blue-100 text-blue-700"
+                ? "border-blue-600 bg-linear-to-br from-blue-50 to-blue-100 text-blue-700 shadow-lg"
                 : "border-stone-300 bg-white text-stone-500 hover:border-stone-400"
             }`}
           >

@@ -1,12 +1,15 @@
 import { useState } from "react";
 
 import InvestmentFormModal from "../components/investment/InvestmentFormModal";
+import InvestmentGrid from "../components/investment/InvestmentGrid";
+import { useInvestmentStore } from "../stores/investmentStore";
 
 function InvestmentPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const investments = useInvestmentStore((state) => state.investments);
 
   return (
-    <>
+    <div className="flex min-h-screen min-w-0 flex-col gap-4">
       <section className="flex items-center justify-between rounded-xl bg-stone-100 p-6 shadow-lg">
         <button
           type="button"
@@ -24,11 +27,24 @@ function InvestmentPage() {
           </p>
         </div>
       </section>
+
+      <section className="rounded-xl bg-stone-100 p-6 shadow-lg">
+        <div className="mb-6 flex items-center justify-between">
+          <h2 className="text-lg font-medium text-stone-900">Your Portfolio</h2>
+
+          <span className="italic rounded-xl bg-stone-200 px-5 py-1 text-xs text-stone-600">
+            {investments.length} Investments
+          </span>
+        </div>
+
+        <InvestmentGrid />
+      </section>
+
       <InvestmentFormModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
-    </>
+    </div>
   );
 }
 

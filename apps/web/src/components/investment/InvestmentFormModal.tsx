@@ -4,8 +4,11 @@ import { X } from "lucide-react";
 import InvestmentTypeSelector from "./InvestmentTypeSelector";
 import MarketInvestmentFields from "./MarketInvestmentFields";
 import TermDepositFields from "./TermDepositFields";
-import { INITIAL_ERRORS } from "./investmentFormConstants";
-import { validateInvestmentForm, hasErrors } from "./validateInvestmentForm";
+import {
+  INITIAL_ERRORS,
+  validateInvestmentForm,
+  hasErrors,
+} from "./investmentForm";
 
 import { useInvestmentStore } from "../../stores/investmentStore";
 
@@ -132,7 +135,7 @@ function InvestmentFormModal({ isOpen, onClose }: InvestmentFormModalProps) {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="investment-name"
-                className="text-sm font-extralight text-stone-700"
+                className="pl-2 text-sm font-extralight text-stone-700"
               >
                 Name
               </label>
@@ -147,7 +150,7 @@ function InvestmentFormModal({ isOpen, onClose }: InvestmentFormModalProps) {
                     ? "e.g. THYAO"
                     : "e.g. Garanti Vadeli"
                 }
-                className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
+                className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
               />
 
               {errors.name && (
@@ -158,7 +161,7 @@ function InvestmentFormModal({ isOpen, onClose }: InvestmentFormModalProps) {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="investment-amount"
-                className="text-sm font-extralight text-stone-700"
+                className="pl-2 text-sm font-extralight text-stone-700"
               >
                 {investmentType === "market" ? "Amount" : "Principal"}
               </label>
@@ -176,7 +179,7 @@ function InvestmentFormModal({ isOpen, onClose }: InvestmentFormModalProps) {
                   value={amount}
                   onChange={(event) => setAmount(event.target.value)}
                   placeholder="0.00"
-                  className={`w-full rounded-xl border border-stone-300 bg-white py-2.5 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500 ${
+                  className={`w-full rounded-full border border-stone-300 bg-white py-2.5 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500 ${
                     investmentType === "term-deposit" ? "pl-9" : "pl-4"
                   }`}
                 />
@@ -210,14 +213,14 @@ function InvestmentFormModal({ isOpen, onClose }: InvestmentFormModalProps) {
             <button
               type="button"
               onClick={handleClose}
-              className="cursor-pointer rounded-xl bg-linear-to-r from-stone-100 to-stone-300 px-6 py-2.5 text-sm font-extralight text-stone-600 transition-transform duration-500 hover:scale-105"
+              className="cursor-pointer rounded-full bg-linear-to-r from-stone-100 to-stone-300 px-6 py-2.5 text-sm font-extralight text-stone-600 transition-transform duration-500 hover:scale-105"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="cursor-pointer rounded-xl bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2.5 text-sm font-extralight text-white transition-transform duration-500 hover:scale-105"
+              className="cursor-pointer rounded-full bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2.5 text-sm font-extralight text-white transition-transform duration-500 hover:scale-105"
             >
               Add Investment
             </button>
