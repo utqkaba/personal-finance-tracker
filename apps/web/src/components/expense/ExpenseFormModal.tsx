@@ -143,7 +143,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="expense-date"
-              className="text-sm font-extralight text-stone-700"
+              className="pl-2 text-sm font-extralight text-stone-700"
             >
               Date
             </label>
@@ -154,7 +154,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
               type="date"
               value={date}
               onChange={(event) => setDate(event.target.value)}
-              className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none transition focus:border-stone-500"
+              className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none transition focus:border-stone-500"
             />
 
             {errors.date && (
@@ -165,7 +165,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
           <div className="flex flex-col gap-2">
             <label
               htmlFor="expense-description"
-              className="text-sm font-extralight text-stone-700"
+              className="pl-2 text-sm font-extralight text-stone-700"
             >
               Description
             </label>
@@ -177,7 +177,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
               placeholder="e.g. Grocery shopping"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
-              className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
+              className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
             />
 
             {errors.description && (
@@ -189,7 +189,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="expense-category"
-                className="text-sm font-extralight text-stone-700"
+                className="pl-2 text-sm font-extralight text-stone-700"
               >
                 Category
               </label>
@@ -200,7 +200,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
                   name="category"
                   value={category}
                   onChange={(event) => setCategory(event.target.value)}
-                  className="w-full appearance-none rounded-xl border border-stone-300 bg-white px-4 py-2.5 pr-10 text-sm text-stone-900 outline-none transition focus:border-stone-500"
+                  className="w-full appearance-none rounded-full border border-stone-300 bg-white px-4 py-2.5 pr-10 text-sm text-stone-900 outline-none transition focus:border-stone-500"
                 >
                   <option value="" disabled>
                     Select a category
@@ -228,7 +228,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="expense-amount"
-                className="text-sm font-extralight text-stone-700"
+                className="pl-2 text-sm font-extralight text-stone-700"
               >
                 Amount
               </label>
@@ -247,7 +247,7 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
                   placeholder="0.00"
                   value={amount}
                   onChange={(event) => setAmount(event.target.value)}
-                  className="w-full rounded-xl border border-stone-300 bg-white py-2.5 pl-9 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
+                  className="w-full rounded-full border border-stone-300 bg-white py-2.5 pl-9 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
                 />
               </div>
 

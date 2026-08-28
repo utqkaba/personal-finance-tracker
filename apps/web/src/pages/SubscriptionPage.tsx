@@ -14,13 +14,6 @@ function SubscriptionPage() {
   return (
     <div className="flex min-h-screen min-w-0 flex-col gap-4">
       <section className="flex items-center justify-between rounded-xl bg-stone-100 p-6 shadow-lg">
-        {/* <div>
-          <h1 className="text-xl font-medium text-stone-900">Subscriptions</h1>
-
-          <p className="mt-1 text-sm font-extralight text-stone-500">
-            Manage your recurring expenses.
-          </p>
-        </div> */}
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}

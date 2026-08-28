@@ -146,7 +146,7 @@ function SubscriptionFormModal({
           <div className="flex flex-col gap-2">
             <label
               htmlFor="subscription-name"
-              className="text-sm font-extralight text-stone-700"
+              className="pl-2 text-sm font-extralight text-stone-700"
             >
               Name
             </label>
@@ -157,7 +157,7 @@ function SubscriptionFormModal({
               value={name}
               onChange={(event) => setName(event.target.value)}
               placeholder="e.g. Spotify"
-              className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
+              className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
             />
 
             {errors.name && (
@@ -169,7 +169,7 @@ function SubscriptionFormModal({
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="subscription-amount"
-                className="text-sm font-extralight text-stone-700"
+                className="pl-2 text-sm font-extralight text-stone-700"
               >
                 Amount
               </label>
@@ -187,7 +187,7 @@ function SubscriptionFormModal({
                   value={amount}
                   onChange={(event) => setAmount(event.target.value)}
                   placeholder="0.00"
-                  className="w-full rounded-xl border border-stone-300 bg-white py-2.5 pl-9 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
+                  className="w-full rounded-full border border-stone-300 bg-white py-2.5 pl-9 pr-4 font-mono text-sm text-stone-900 outline-none placeholder:text-stone-400 focus:border-stone-500"
                 />
               </div>
 
@@ -199,7 +199,7 @@ function SubscriptionFormModal({
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="subscription-cycle"
-                className="text-sm font-extralight text-stone-700"
+                className="pl-2 text-sm font-extralight text-stone-700"
               >
                 Billing Cycle
               </label>
@@ -210,7 +210,7 @@ function SubscriptionFormModal({
                 onChange={(event) =>
                   setBillingCycle(event.target.value as "monthly" | "yearly")
                 }
-                className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
+                className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
               >
                 <option value="monthly">Monthly</option>
                 <option value="yearly">Yearly</option>
@@ -227,7 +227,7 @@ function SubscriptionFormModal({
           <div className="flex flex-col gap-2">
             <label
               htmlFor="subscription-date"
-              className="text-sm font-extralight text-stone-700"
+              className="pl-2 text-sm font-extralight text-stone-700"
             >
               Next Billing Date
             </label>
@@ -237,7 +237,7 @@ function SubscriptionFormModal({
               type="date"
               value={nextBillingDate}
               onChange={(event) => setNextBillingDate(event.target.value)}
-              className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
+              className="rounded-full border border-stone-300 bg-white px-4 py-2.5 text-sm text-stone-900 outline-none focus:border-stone-500"
             />
 
             {errors.nextBillingDate && (
