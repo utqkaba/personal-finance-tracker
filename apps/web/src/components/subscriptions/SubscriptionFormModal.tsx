@@ -251,14 +251,14 @@ function SubscriptionFormModal({
             <button
               type="button"
               onClick={handleClose}
-              className="cursor-pointer rounded-xl bg-linear-to-r from-stone-100 to-stone-300 px-6 py-2.5 text-sm font-extralight text-stone-600 transition-transform duration-500 hover:scale-105"
+              className="cursor-pointer rounded-full bg-linear-to-r from-stone-100 to-stone-300 px-6 py-2.5 text-sm font-extralight text-stone-600 transition-transform duration-500 hover:scale-105"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="cursor-pointer rounded-xl bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2.5 text-sm font-extralight text-white transition-transform duration-500 hover:scale-105"
+              className="cursor-pointer rounded-full bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2.5 text-sm font-extralight text-white transition-transform duration-500 hover:scale-105"
             >
               {isEditMode ? "Save Changes" : "Add Subscription"}
             </button>

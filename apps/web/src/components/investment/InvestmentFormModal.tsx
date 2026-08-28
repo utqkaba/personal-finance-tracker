@@ -100,7 +100,7 @@ function InvestmentFormModal({ isOpen, onClose }: InvestmentFormModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 px-4">
-      <div className="w-full max-w-md rounded-xl border border-stone-200 bg-stone-100 p-6 shadow-xl">
+      <div className="w-full max-w-md rounded-lg border border-stone-200 bg-stone-100 p-6 shadow-xl">
         <div className="mb-6 flex items-start justify-between">
           <div>
             <h2 className="text-xl text-shadow-stone-300 text-shadow-lg text-stone-900">

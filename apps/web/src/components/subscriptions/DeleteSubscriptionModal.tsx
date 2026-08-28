@@ -57,7 +57,7 @@ function DeleteSubscriptionModal({
           <button
             type="button"
             onClick={onClose}
-            className="cursor-pointer rounded-2xl bg-linear-to-r from-stone-100 to-stone-300 px-6 py-2.5 text-sm font-extralight text-stone-600 transition-transform duration-300 hover:scale-105"
+            className="cursor-pointer rounded-full bg-linear-to-r from-stone-100 to-stone-300 px-6 py-2.5 text-sm font-extralight text-stone-600 transition-transform duration-300 hover:scale-105"
           >
             Cancel
           </button>
@@ -65,7 +65,7 @@ function DeleteSubscriptionModal({
           <button
             type="button"
             onClick={onConfirm}
-            className="cursor-pointer rounded-2xl bg-linear-to-r from-red-100 to-red-500 px-6 py-2.5 text-sm font-extralight text-white transition-transform duration-300 hover:scale-105"
+            className="cursor-pointer rounded-full bg-linear-to-r from-red-100 to-red-500 px-6 py-2.5 text-sm font-extralight text-white transition-transform duration-300 hover:scale-105"
           >
             Delete
           </button>

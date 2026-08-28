@@ -24,7 +24,7 @@ function SubscriptionPage() {
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="cursor-pointer rounded-2xl bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2 font-extralight text-white transition-transform duration-500 hover:scale-105"
+          className="cursor-pointer rounded-full bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2 font-extralight text-white transition-transform duration-500 hover:scale-105"
         >
           + Add Subscription
         </button>

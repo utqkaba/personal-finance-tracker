@@ -42,7 +42,7 @@ function Sidebar() {
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 rounded-xl px-4 py-3 font-extralight transition-all duration-200 ${
+                `flex items-center gap-3 rounded-full px-4 py-3 font-extralight transition-all duration-200 ${
                   isActive
                     ? "bg-linear-to-r from-stone-100 to-stone-300 text-blue-800"
                     : "text-stone-600 hover:bg-linear-to-r from-stone-100 to-stone-300 hover:text-stone-900"

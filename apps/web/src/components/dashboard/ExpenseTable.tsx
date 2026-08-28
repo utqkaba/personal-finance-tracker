@@ -62,12 +62,12 @@ function ExpenseTable() {
               type="button"
               onClick={handleDeleteAll}
               disabled={expenses.length === 0}
-              className="cursor-pointer rounded-xl bg-linear-to-r from-red-100 to-red-500 px-6 py-1.5 text-xs font-extralight text-white transition-transform duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
+              className="cursor-pointer rounded-full bg-linear-to-r from-red-100 to-red-500 px-6 py-1.5 text-xs font-extralight text-white transition-transform duration-300 hover:scale-105 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:scale-100"
             >
               Delete All
             </button>
 
-            <span className="rounded-xl bg-stone-200 px-5 py-1 text-xs italic text-stone-600">
+            <span className="rounded-full bg-stone-200 px-5 py-1 text-xs italic text-stone-600">
               {expenses.length} Expenses
             </span>
           </div>

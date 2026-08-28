@@ -261,14 +261,14 @@ function ExpenseFormModal({ isOpen, onClose, expense }: ExpenseFormModalProps) {
             <button
               type="button"
               onClick={handleClose}
-              className="cursor-pointer rounded-xl px-6 py-2.5 text-sm font-extralight text-stone-600 bg-linear-to-r from-stone-100 to-stone-300 hover:bg-stone-200 hover:scale-105 transition-transform duration-500"
+              className="cursor-pointer rounded-full px-6 py-2.5 text-sm font-extralight text-stone-600 bg-linear-to-r from-stone-100 to-stone-300 hover:bg-stone-200 hover:scale-105 transition-transform duration-500"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="cursor-pointer rounded-xl bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2.5 text-sm font-extralight text-white hover:bg-stone-800 hover:scale-105 transition-transform duration-500"
+              className="cursor-pointer rounded-full bg-linear-to-r from-blue-100 to-blue-700 px-7 py-2.5 text-sm font-extralight text-white hover:bg-stone-800 hover:scale-105 transition-transform duration-500"
             >
               {isEditing ? "Update Expense" : "Add Expense"}
             </button>
